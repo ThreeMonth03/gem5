@@ -1,0 +1,65 @@
+Global frequency set at 1000000000000 ticks per second
+      0: system.global_mem.mem_ctrl.dram: Setting up DRAM Interface
+      0: system.global_mem.mem_ctrl.dram: Creating DRAM rank 0 
+      0: system.global_mem.mem_ctrl.dram: Creating DRAM rank 1 
+      0: system.global_mem.mem_ctrl.dram: Memory capacity 1073741824 (1073741824) bytes
+      0: system.global_mem.mem_ctrl.dram: Row buffer size 8192 bytes with 128 bursts per row buffer
+      0: system.simplePEs0: SimplePE: requestorId: 7
+      0: system.simplePEs1: SimplePE: requestorId: 8
+      0: system.simplePEs2: SimplePE: requestorId: 9
+      0: system.simplePEs3: SimplePE: requestorId: 10
+      0: system.simplePEs0: addTraffic: Adding traffic addr=0x4e20, type=r to traffic list
+      0: system.simplePEs0: start: Start operating 1 traffic
+      0: system.simplePEs1: start: Start operating 0 traffic
+      0: system.simplePEs2: start: Start operating 0 traffic
+      0: system.simplePEs3: start: Start operating 0 traffic
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1
+gem5 compiled Aug 24 2023 06:45:34
+gem5 started Aug 24 2023 08:46:14
+gem5 executing on a39778503a15, pid 16425
+command line: build/NULL/gem5.opt -d ../lab1/m5out/scene1 --debug-flags SimplePE,CacheAll,XBar,DRAM configs/archlab/lab1/arch_config.py
+
+Beginning simulation!
+      1: system.simplePEs0: sendReq: Sending request traffic index: 0
+      1: system.simplePEs0: sendReq: Sending pkt: ReadReq [4e00:4e3f] to memory side port
+      1: system.caches0: access for ReadReq [4e00:4e3f] miss
+      1: system.caches0.mshr_queue: Allocating new MSHR. Number in use will be 1/16
+      1: system.caches0.mshr_queue.entry.targets: New target allocated: ReadReq [4e00:4e3f]
+      1: system.caches0.mem_side_port: Scheduling send event at 2000
+      1: system.caches0.prefetcher: Adding context 7 with stride entries
+      1: system.caches0.prefetcher: Miss: PC 1c pkt_addr 4e00 (ns)
+   2000: system.caches0: sendMSHRQueuePacket: MSHR ReadReq [4e00:4e3f]
+   2000: system.caches0: createMissPacket: created ReadSharedReq [4e00:4e3f] from ReadReq [4e00:4e3f]
+   2000: system.global_membus: recvTimingReq: src system.global_membus.cpu_side_port[1] packet ReadSharedReq [4e00:4e3f]
+   2000: system.global_membus.snoop_filter: lookupRequest: src system.global_membus.cpu_side_port[1] packet ReadSharedReq [4e00:4e3f]
+   2000: system.global_membus.snoop_filter: lookupRequest:   SF value 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   2000: system.global_membus.snoop_filter: lookupRequest:   new SF value 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   2000: system.global_membus: recvTimingReq: src system.global_membus.cpu_side_port[1] packet ReadSharedReq [4e00:4e3f] SF size: 0 lat: 1
+   2000: system.global_membus: forwardTiming for ReadSharedReq [4e00:4e3f]
+   2000: system.global_mem.mem_ctrl.dram: Address: 0x4e00 Rank 0 Bank 2 Row 0
+   2000: system.global_membus.reqLayer0: The crossbar layer is now busy from tick 2000 to 3000
+   2000: system.global_mem.mem_ctrl.dram: Timing access to addr 0x4e00, rank/bank/row 0 2 0
+   2000: system.global_mem.mem_ctrl.dram: Activate at tick 2000
+   2000: system.global_mem.mem_ctrl.dram: Activate bank 2, rank 0 at tick 2000, now got 1 active
+   2000: system.global_mem.mem_ctrl.dram: Schedule RD/WR burst at tick 27500
+  46250: system.global_mem.mem_ctrl.dram: number of read entries for rank 0 is 0
+  74250: system.global_membus: recvTimingResp: src system.global_membus.mem_side_port[0] packet ReadResp [4e00:4e3f]
+  74250: system.global_membus.snoop_filter: updateResponse: src system.global_membus.cpu_side_port[1] packet ReadResp [4e00:4e3f]
+  74250: system.global_membus.snoop_filter: updateResponse:   old SF value 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  74250: system.global_membus.snoop_filter: updateResponse:   new SF value 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+  74250: system.global_membus.respLayer1: The crossbar layer is now busy from tick 74250 to 80000
+  77000: system.caches0: recvTimingResp: Handling response ReadResp [4e00:4e3f]
+  77000: system.caches0: Block for addr 0x4e00 being updated in Cache
+  77000: system.caches0: Replacement victim: state: 0 (I) writable: 0 readable: 0 dirty: 0 prefetched: 0 | tag: 0xffffffffffffffff secure: 0 valid: 0 | set: 0x38 way: 0
+  77000: system.caches0: Block addr 0x4e00 (ns) moving from  to state: 6 (E) writable: 1 readable: 1 dirty: 0 prefetched: 0 | tag: 0x2 secure: 0 valid: 1 | set: 0x38 way: 0
+  77000: system.caches0.mshr_queue: Deallocating all targets: [0x4e00:0x4e3f](ns)    state:  InSvc    
+  77000: system.caches0.mshr_queue: MSHR deallocated. Number in use: 0/16
+  77000: system.caches0: recvTimingResp: Leaving with ReadResp [4e00:4e3f]
+  78000: system.simplePEs0: recvTimingResp: recv r response, addr=0x4e00
+  78000: 0: Computing stats due to a dump callback
+  78000: 1: Computing stats due to a dump callback
+Exiting @ tick 78000 because system.simplePEs0 has encountered the exit state and will terminate the simulation.
+
