@@ -1,0 +1,8 @@
+Import('*')
+
+SimObject('simple_pe.py', sim_objects=['SimplePE'])
+
+Source('simple_pe.cc')
+
+DebugFlag('SimplePE')
+
